@@ -26,6 +26,32 @@ Display.prototype.clear = function () {
   libraryForm.reset();
 };
 
+Display.prototype.validate = function (book) {
+  if (book.name.length < 3 || book.author.length < 2) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+Display.prototype.show = function (type, displayMessage, msgType) {
+  let message = document.getElementById("msg");
+  message.innerHTML = `
+    <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+        <strong>${msgType}</strong> ${displayMessage}
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+        ></button>
+    </div>
+  `;
+  setTimeout(() => {
+    message.innerHTML = ``;
+  }, 3000);
+};
+
 const libraryFormSubmit = e => {
   e.preventDefault();
   console.log("you have submitted the form");
@@ -49,8 +75,19 @@ const libraryFormSubmit = e => {
   console.log(book);
 
   let display = new Display();
-  display.add(book);
-  display.clear();
+
+  if (display.validate(book)) {
+    display.add(book);
+    display.clear();
+    display.show(
+      "success",
+      "Your book has been successfully saved!",
+      "Success"
+    );
+  } else {
+    // Display error
+    display.show("danger", "Sorry, Your book couldn't be saved", "Error");
+  }
 };
 
 const libraryForm = document.getElementById("myForm");
