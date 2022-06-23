@@ -35,21 +35,12 @@ Display.prototype.validate = function (book) {
 };
 
 Display.prototype.show = function (type, displayMessage, msgType) {
-  let message = document.getElementById("msg");
-  message.innerHTML = `
-    <div class="alert alert-${type} alert-dismissible fade show" role="alert">
-        <strong>${msgType}</strong> ${displayMessage}
-        <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-        ></button>
-    </div>
-  `;
-  setTimeout(() => {
-    message.innerHTML = ``;
-  }, 3000);
+  swal({
+    title: msgType,
+    text: displayMessage,
+    icon: type,
+    button: "OK",
+  });
 };
 
 const libraryFormSubmit = e => {
@@ -86,7 +77,7 @@ const libraryFormSubmit = e => {
     );
   } else {
     // Display error
-    display.show("danger", "Sorry, Your book couldn't be saved", "Error");
+    display.show("error", "Sorry, Your book couldn't be saved", "Error");
   }
 };
 
