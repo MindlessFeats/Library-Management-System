@@ -51,15 +51,15 @@ const libraryFormSubmit = e => {
   let type;
 
   let fiction = document.getElementById("fiction");
-  let nFiction = document.getElementById("nFiction");
+  let NonFiction = document.getElementById("NonFiction");
   let programming = document.getElementById("programming");
 
   if (fiction.checked) {
-    type = fiction.value;
-  } else if (nFiction.checked) {
-    type = nFiction.value;
+    type = fiction.value.toUpperCase();
+  } else if (NonFiction.checked) {
+    type = NonFiction.value.toUpperCase();
   } else if (programming.checked) {
-    type = programming.value;
+    type = programming.value.toUpperCase();
   }
 
   let book = new Book(name, author, type);
