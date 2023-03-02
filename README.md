@@ -1,6 +1,4 @@
 # Library-Management-System
-LMS project created using JavaScript
-
+LMS project created using JavaScript and Bootstrap
 ---
-
-## --- Project Under Progress ---
+Live at --> https://saarthak-slathia.github.io/Library-Management-System/
