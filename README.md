@@ -2,4 +2,4 @@
 LMS project created using JavaScript and Bootstrap
 
 ---
-Site live at --> https://saarthak-slathia.github.io/Library-Management-System/
+Site live at --> https://mindlessfeats.github.io/Library-Management-System/
