@@ -1,0 +1,10 @@
+button{
+    border: 0;
+    background: unset;
+}
+
+
+#deleteBook {
+    background: red;
+    color: #fff;
+}
